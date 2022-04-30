@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #persone, #result {
+            width: 350px;
+            height: 50px;
+            font-family: 'Akshar', sans-serif;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: rgb(248, 226, 252);
+            box-shadow: 0 1px 5px rgb(0 0 0 / 25%);
+            font-size: 20px;
+        }
+        .btn {
+            width: 150px;
+            height: 30px;
+            font-family: 'Akshar', sans-serif;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: rgb(210, 242, 249);
+            box-shadow: 0 1px 5px rgb(0 0 0 / 25%);
+            font-size: 20px;
+            margin: 30px;
+            
+        }
+        #errormessage {     
+    padding-left: 14px;
+    font-size: 12px;
+    color: rgb(207, 58, 58);
+    font-weight: bolder;}
+    </style>    
+
+
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            <input id="persone" type="text" placeholder="Please enter name and surname"/>
+        </div>
+        <div id="errormessage"></div>
+        <button class="btn" onclick="clickMe()">Submit </button>
+        <div id="result">   </div>
+    </form>
+
+
+    <script>
+        function clickMe() {
+        let x = document.getElementById('persone');
+        let persone = x.value;
+        document.getElementById('result').innerHTML = '',
+        console.log(persone);
+        persone = persone.toLowerCase();
+        alert(persone);
+        let fullNames = persone.split(" ");
+        console.log(fullNames);
+        
+        for (let fullName of fullNames) {            
+            fullName = fullName.charAt(0).toUpperCase() + fullName.slice(1);
+            console.log(fullName)
+        };
+        alert(`Фамилия: ${Fullnames[0]}`)
+        document.getElementById('result').innerHTML += `Фамилия: ${Fullnames[0]}, Имя: ${Fullnames[1]}, Отчество: ${Fullnames[2]}`;
+              
+    }
+    </script>
+
+
+</body>
