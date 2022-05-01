@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+    </style>    
+    <title>Document</title>
+</head>
+<body>               
+        <button class="btn" onclick="date()">Date</button>
+        <button class="btn" onclick="formatDate()">CheckTime</button>
+        
+               
+    
+
+
+    <script>
+        let dateStart = new Date();
+        let end = new Date(2022, 6, 2);
+        function date() {
+            alert(dateStart);
+            alert(end);
+            }     
+        
+        function formatDate(date, end)
+        {   let time = +end - +dateStart;            
+            if(time <= 1000)  alert('прямо сейчас')
+            else if(time <= 6000) alert(`${time / 1000} секунд назад`);
+            else if(time <= 36000) alert(`${time / 60000} минут назад`);
+            else {
+                let year = dateStart.getFullYear(); 
+                year = year.toString();
+                let year2 = year.slice(2, 4);     
+                date =  dateStart.getDate();
+                date = date.toString();  
+                if (date.length == 1) date = 0 + date;
+                month =  dateStart.getMonth() + 1;
+                month = month.toString();  
+                if (month.length == 1) month = 0 + month;
+                hour =  dateStart.getHours();
+                hour = hour.toString();  
+                if (hour.length == 1) hour = 0 + hour;
+                minute =  dateStart.getMinutes();
+                minute = minute.toString();  
+                if (minute.length == 1) hour = 0 + minute;
+                second =  dateStart.getSeconds();
+                second = second.toString();  
+                if (second.length == 1) second = 0 + second;                    
+
+                
+
+                alert(`${date}:${month}:${year2} ${hour}:${minute}:${second}`);
+            }
+
+
+        }
+
+        
+        
+    </script>
+
+
+</body>
