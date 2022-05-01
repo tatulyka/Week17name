@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         #result, #result1 {
+            width: 330px;
+            height: 60px;
+            font-family: 'Akshar', sans-serif;
+            border: 1px solid rgb(35, 40, 36);
+            border-radius: 5px;
+            background-color: rgba(192, 255, 188, 0.938);
+            box-shadow: 0 1px 5px rgb(0 0 0 / 25%);
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn {
+            width: 230px;
+            height: 30px;
+            font-family: 'Akshar', sans-serif;
+            border: 1px solid rgb(35, 40, 36);
+            border-radius: 5px;
+            background-color: rgba(192, 255, 188, 0.938);
+            box-shadow:  0 1px 5px rgb(0 0 0 / 25%);
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;           
+        }
+        .btn1 {
+            width: 110px;
+            height: 30px;
+            font-family: 'Akshar', sans-serif;
+            border: 1px solid rgb(35, 40, 36);
+            border-radius: 5px;
+            background-color: rgba(58, 98, 55, 0.938);
+            color: whitesmoke;
+            box-shadow: 0 1px 5px rgba(35, 40, 36, 0.25);
+            font-size: 20px;
+            margin-bottom: 30px;           
+        }
+
+        
+    </style>    
+
+
+    <title>Document</title>
+</head>
+<body>
+           
+        <button class="btn" onclick="generate()">Generate</button>
+        <button class="btn1" onclick="minimum()">min</button>
+        <button class="btn1" onclick="maximum()">max</button>
+        <button class="btn1" onclick="middle()">middle</button>
+        <button class="btn1" onclick="summ()">summa</button>
+        <button class="btn1" onclick="multiply()">multiply</button>
+
+
+
+        <div id="result"></div>           
+        <div id="result1"></div>           
+    
+
+
+    <script>       
+       let array = [];
+       
+       
+       function generate() {
+           let min = -10;
+           let max = 10;
+           let x = '';
+            while (array.length < 10) {
+            x = (Math.round(Math.random() * (max - min) + min));
+            array.push(+x)
+            
+        }
+        document.getElementById('result').innerHTML = array;
+        return array;
+
+    }
+
+        function minimum(){
+            if (array.length !== 0) {
+            let minimumCount  =  Math.min(...array);  
+            document.getElementById('result1').innerHTML = (`Минимальное число:  ${minimumCount}`);}            
+        }
+        function maximum(){
+            if (array.length !== 0) {
+            let maximumCount  =  Math.max(...array);  
+
+            document.getElementById('result1').innerHTML = (`Максимальное число:  ${maximumCount}`);}            
+        }
+        function middle(){
+            let summCount = array.reduce(function(prev, curr) { return prev + curr });  
+            document.getElementById('result1').innerHTML = (`Среднее арифметическое:  ${summCount / array.length}`);}
+
+        function summ(){            
+            let summa = array.reduce(function(prev, curr) { return prev + curr });
+            document.getElementById('result1').innerHTML = (`Сумма:  ${summa}`);}            
+                     
+        function multiply(){            
+            let multy = array.reduce(function(prev, curr) { return prev * curr });
+            document.getElementById('result1').innerHTML = (`Произведение:  ${multy}`);}            
+                     
+        
+
+
+
+        
+        
+    </script>
+
+
+</body>
